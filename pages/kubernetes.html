@@ -35,14 +35,14 @@
 #如果不行就使用下面的命令
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg</pre>
     <p>新建 <code>/etc/apt/sources.list.d/kubernetes.list</code>，内容为</p>
-    <pre>deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://mirrors.gdut.edu.cn/kubernetes/apt kubernetes-xenial main</pre>
+    <pre>deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://mirrors.imixc.top/kubernetes/apt kubernetes-xenial main</pre>
     <p>如果在执行<code>sudo apt update</code>时出现“无法安全地用该源进行更新，所以默认禁用该源。”的问题,可以执行以下的指令
     <pre>sudo apt update --allow-insecure-repositories</pre>
     <h4>2. 对于RHEL/CentOS</h4>
     <p>新建 <code>/etc/yum.repos.d/kubernetes.repo</code>，内容为：</p>
     <pre>[kubernetes]
 name=kubernetes
-baseurl=https://mirrors.gdut.edu.cn/kubernetes/yum/repos/kubernetes-el7-$basearch
+baseurl=https://mirrors.imixc.top/kubernetes/yum/repos/kubernetes-el7-$basearch
 enabled=1
 gpgcheck=1
 repo_gpgcheck=1
