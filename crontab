@@ -1,0 +1,31 @@
+# crontab for user mirror
+
+0 0,6,12,18 * * *  /home/mirror/mirrors-gdut/mirror.sh ubuntu
+20 0,6,12,18 * * *  /home/mirror/mirrors-gdut/mirror.sh ubuntu-releases
+40 0,6,12,18 * * *  /home/mirror/mirrors-gdut/mirror.sh elpa
+
+#0 1,7,13,19 * * *  /home/mirror/mirrors-gdut/mirror.sh manjaro
+#20 1,7,13,19 * * *  /home/mirror/mirrors-gdut/mirror.sh manjaro-cd
+#40 1,7,13,19 * * *  /home/mirror/mirrors-gdut/mirror.sh termux
+
+0 2,8,14,20 * * *  /home/mirror/mirrors-gdut/mirror.sh debian
+20 2,8,14,20 * * *  /home/mirror/mirrors-gdut/mirror.sh debian-cd
+40 2,8,14,20 * * *  /home/mirror/mirrors-gdut/mirror.sh gentoo
+
+#0 3,9,15,21 * * *  /home/mirror/mirrors-gdut/mirror.sh raspberrypi
+#20 3,9,15,21 * * *  /home/mirror/mirrors-gdut/mirror.sh raspbian
+#40 3,9,15,21 * * *  /home/mirror/mirrors-gdut/mirror.sh freebsd
+
+0 4,10,16,22 * * *  /home/mirror/mirrors-gdut/mirror.sh centos
+20 4,10,16,22 * * *  /home/mirror/mirrors-gdut/mirror.sh epel
+#40 4,10,16,22 * * *  /home/mirror/mirrors-gdut/mirror.sh kali-images
+
+0 5,11,17,23 * * *  /home/mirror/mirrors-gdut/mirror.sh archlinux
+20 5,11,17,23 * * *  /home/mirror/mirrors-gdut/mirror.sh archlinuxcn
+
+# 每天23:59发送当日统计
+59 23 * * * /bin/python3 /home/mirror/mirror_daily_summary.py > /mnt/mirror/daily_stat.txt
+# 每周日23:30发送磁盘数据
+30 23 * * 0  /bin/python3 /home/mirror/mirror_disk_summary.py
+# 缓存预热
+# 0 4 * * *  cd /home/mirror/tmp; python3 /home/mirror/mirrors-gdut/mirror_auto_cache.py > /tmp/mirror_auto_cache.log
