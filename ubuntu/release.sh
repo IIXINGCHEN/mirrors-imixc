@@ -15,7 +15,7 @@ warn() {
 RSYNCSOURCE=rsync://mirrors.bfsu.edu.cn/ubuntu-releases/
 
 # Define where you want the mirror-data to be on your mirror
-BASEDIR=/mnt/mirror/ubuntu-releases/
+BASEDIR=/data/mirror/ubuntu-releases/
 
 if [ ! -d ${BASEDIR} ]; then
   warn "${BASEDIR} does not exist yet, trying to create it..."

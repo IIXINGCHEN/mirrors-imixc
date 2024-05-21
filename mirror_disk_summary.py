@@ -3,11 +3,11 @@ from mod_weixin import *
 
 msg = "[磁盘统计]\n"
 
-space_used = os.popen('cd /mnt/mirror/ && du -BG -d 1 ./ | sort -k2 | grep -v -E "^0G"').read()
+space_used = os.popen('cd /data/mirror/ && du -BG -d 1 ./ | sort -k2 | grep -v -E "^0G"').read()
 msg += '===镜像占用===\n'
 msg += space_used
 
-space_used = os.popen('cd /home/mirror/nginx_cache/ && du -BM -d 1 ./ | sort -k2').read()
+space_used = os.popen('cd /data/mirror/nginx_cache/ && du -BM -d 1 ./ | sort -k2').read()
 msg += '===缓存占用===\n'
 msg += space_used
 

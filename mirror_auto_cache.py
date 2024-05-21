@@ -102,7 +102,7 @@ sys.stdout.flush()
 # pypi
 start_time = time.time()
 for url in pypi_heat_url:
-    os.system('curl -I http://mirrors.gdut.edu.cn/pypi%s -o/dev/null 2>/dev/null' % url)
+    os.system('curl -I http://mirrors.imixc.top/pypi%s -o/dev/null 2>/dev/null' % url)
 end_time = time.time()
 cost_time = int(end_time - start_time)
 print("pypi预热用时: %.2f hours" % (cost_time / 60 / 60))
@@ -110,7 +110,7 @@ sys.stdout.flush()
 # anaconda
 start_time = time.time()
 for url in anaconda_heat_url:
-    os.system('curl -I http://mirrors.gdut.edu.cn%s -o/dev/null 2>/dev/null' % url)
+    os.system('curl -I http://mirrors.imixc.top%s -o/dev/null 2>/dev/null' % url)
 end_time = time.time()
 cost_time = int(end_time - start_time)
 print("anaconda预热用时: %.2f hours" % (cost_time / 60 / 60))
@@ -118,14 +118,14 @@ sys.stdout.flush()
 # kali
 start_time = time.time()
 for url in kali_heat_url:
-    os.system('curl -I http://mirrors.gdut.edu.cn%s -o/dev/null 2>/dev/null' % url)
+    os.system('curl -I http://mirrors.imixc.top%s -o/dev/null 2>/dev/null' % url)
 end_time = time.time()
 cost_time = int(end_time - start_time)
 print("kali预热用时: %.2f hours" % (cost_time / 60 / 60))
 # ubuntu-ports
 start_time = time.time()
 for url in ubuntu_ports_heat_url:
-    os.system('curl -I http://mirrors.gdut.edu.cn%s -o/dev/null 2>/dev/null' % url)
+    os.system('curl -I http://mirrors.imixc.top%s -o/dev/null 2>/dev/null' % url)
 end_time = time.time()
 cost_time = int(end_time - start_time)
 print("ubuntu-ports预热用时: %.2f hours" % (cost_time / 60 / 60))
@@ -133,7 +133,7 @@ sys.stdout.flush()
 # gentoo
 start_time = time.time()
 for url in gentoo_heat_url:
-    os.system('curl -I http://mirrors.gdut.edu.cn%s -o/dev/null 2>/dev/null' % url)
+    os.system('curl -I http://mirrors.imixc.top%s -o/dev/null 2>/dev/null' % url)
 end_time = time.time()
 cost_time = int(end_time - start_time)
 print("gentoo预热用时: %.2f hours" % (cost_time / 60 / 60))

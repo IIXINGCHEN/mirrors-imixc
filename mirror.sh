@@ -63,15 +63,15 @@ echo "日志文件："${LOG_FILE}
 case $1 in
 #archlinux)
   # 上游：中科大镜像
-  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinux /mnt/mirror/archlinux | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinux /data/mirror/archlinux | tee ${LOG_FILE}
   #;;
 #archlinuxcn)
   # 上游：中科大镜像
-  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinuxcn /mnt/mirror/archlinuxcn | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinuxcn /data/mirror/archlinuxcn | tee ${LOG_FILE}
   #;;
 #centos)
   # 上游：北京外国语镜像
-  #rsync ${COMMON_OPTIONS} --exclude='6.10/*' --exclude='aarch64/' --exclude='ppc64/' --exclude='ppc64le/' --exclude='s390x/' mirrors.bfsu.edu.cn::centos /mnt/mirror/centos | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} --exclude='6.10/*' --exclude='aarch64/' --exclude='ppc64/' --exclude='ppc64le/' --exclude='s390x/' mirrors.bfsu.edu.cn::centos /data/mirror/centos | tee ${LOG_FILE}
   #;;
 #debian)
   # 上游：清华镜像
@@ -79,15 +79,15 @@ case $1 in
   #;;
 #debian-cd)
   # 上游：北京外国语镜像
-  #rsync ${COMMON_OPTIONS} --include='amd64/**.iso' --exclude='*.iso' --exclude='source/tar/**' mirrors.bfsu.edu.cn::debian-cd /mnt/mirror/debian-cd | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} --include='amd64/**.iso' --exclude='*.iso' --exclude='source/tar/**' mirrors.bfsu.edu.cn::debian-cd /data/mirror/debian-cd | tee ${LOG_FILE}
   #;;
 #docker-ce)
   # 上游：清华镜像
-  rsync ${COMMON_OPTIONS} --exclude='linux/fedora/' --exclude='linux/raspbian/' --exclude='linux/rhel/' mirrors.tuna.tsinghua.edu.cn::docker-ce /mnt/mirror/docker-ce/ | tee ${LOG_FILE}
+  rsync ${COMMON_OPTIONS} --exclude='linux/fedora/' --exclude='linux/raspbian/' --exclude='linux/rhel/' mirrors.tuna.tsinghua.edu.cn::docker-ce /data/mirror/docker-ce/ | tee ${LOG_FILE}
   ;;
 #elpa)
   # 上游：elpa.emacs-china.org
-  #rsync ${COMMON_OPTIONS} elpa.emacs-china.org::elpa /mnt/mirror/elpa/ | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} elpa.emacs-china.org::elpa /data/mirror/elpa/ | tee ${LOG_FILE}
   #;;
 epel)
   # 上游：清华镜像
@@ -97,47 +97,47 @@ epel)
   # 上游：ftp2.jp.FreeBSD.org
   # 官方文档 https://www.freebsd.org/doc/en_US.ISO8859-1/articles/hubs/mirror-howto.html
   # 可选源：{ftp,ftp2,ftp6,ftp7}.jp.FreeBSD.org
-  #rsync ${COMMON_OPTIONS} --exclude='/snapshots' --exclude='/development' --exclude='arm/' --exclude='arm64/' --exclude='aarch64/' --exclude='i386/' --exclude='powerpc/' --exclude='sparc64/' --exclude='**/11.2*/' --exclude='11.3*/' --exclude='11.4*/' --exclude='12.0*/' --exclude='12.1*/' --exclude='*BETA*/' --exclude='**/*arm*' --exclude='**/*i386*' --exclude='**/*powerpc*' --exclude='**/*sparc64*' ftp2.jp.FreeBSD.org::pub/FreeBSD/ /mnt/mirror/freebsd/ | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} --exclude='/snapshots' --exclude='/development' --exclude='arm/' --exclude='arm64/' --exclude='aarch64/' --exclude='i386/' --exclude='powerpc/' --exclude='sparc64/' --exclude='**/11.2*/' --exclude='11.3*/' --exclude='11.4*/' --exclude='12.0*/' --exclude='12.1*/' --exclude='*BETA*/' --exclude='**/*arm*' --exclude='**/*i386*' --exclude='**/*powerpc*' --exclude='**/*sparc64*' ftp2.jp.FreeBSD.org::pub/FreeBSD/ /data/mirror/freebsd/ | tee ${LOG_FILE}
   #;;
 #gentoo)
   # 上游：masterdistfiles.gentoo.org
   # 官方文档 https://wiki.gentoo.org/wiki/Project:Infrastructure/Mirrors/Source
-  #rsync ${COMMON_OPTIONS} --exclude='/releases/historical' --exclude='/distfiles/**' --exclude='**/alpha' --exclude='**/bsd' --exclude='**/hppa' --exclude='**/ia64' --exclude='**/m68k' --exclude='**/mips' --exclude='**/ppc' --exclude='**/prefix' --exclude='**/s390' --exclude='**/sh' --exclude='**/sparc' masterdistfiles.gentoo.org::gentoo /mnt/mirror/gentoo | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} --exclude='/releases/historical' --exclude='/distfiles/**' --exclude='**/alpha' --exclude='**/bsd' --exclude='**/hppa' --exclude='**/ia64' --exclude='**/m68k' --exclude='**/mips' --exclude='**/ppc' --exclude='**/prefix' --exclude='**/s390' --exclude='**/sh' --exclude='**/sparc' masterdistfiles.gentoo.org::gentoo /data/mirror/gentoo | tee ${LOG_FILE}
   #;;
 #kali-images)
   # 上游：清华镜像
-  #rsync ${COMMON_OPTIONS} --include='*amd64.iso' --exclude='*.iso' mirrors.tuna.tsinghua.edu.cn::kali-images /mnt/mirror/kali-images | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} --include='*amd64.iso' --exclude='*.iso' mirrors.tuna.tsinghua.edu.cn::kali-images /data/mirror/kali-images | tee ${LOG_FILE}
   #;;
 #kubernetes)
   # 上游：清华镜像
-  #rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::kubernetes /mnt/mirror/kubernetes/ | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::kubernetes /data/mirror/kubernetes/ | tee ${LOG_FILE}
   #;;
 #manjaro)
   # 上游：中科大镜像
-  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::repo/manjaro/ /mnt/mirror/manjaro/ | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::repo/manjaro/ /data/mirror/manjaro/ | tee ${LOG_FILE}
   #;;
 #manjaro-cd)
   # 上游：中科大镜像
-  #rsync ${COMMON_OPTIONS} --exclude='z_release_archive/' rsync.mirrors.ustc.edu.cn::repo/manjaro-cd/ /mnt/mirror/manjaro-cd/ | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} --exclude='z_release_archive/' rsync.mirrors.ustc.edu.cn::repo/manjaro-cd/ /data/mirror/manjaro-cd/ | tee ${LOG_FILE}
   #;;
 #raspberrypi)
   # 上游：apt-repo.raspberrypi.org
   # 仅支持ipv6，详见 http://archive.raspberrypi.org/README.txt
-  #rsync ${COMMON_OPTIONS} --exclude='/html' apt-repo.raspberrypi.org::archive /mnt/mirror/raspberrypi | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} --exclude='/html' apt-repo.raspberrypi.org::archive /data/mirror/raspberrypi | tee ${LOG_FILE}
   #;;
 #raspbian)
   # 上游：archive.raspbian.org
   # 采用官方脚本，文档见 http://www.raspbian.org/RaspbianMirrors
-  # cd /mnt/mirror/raspbian/
-  # python3 -u ~/raspbmirror.py --sourcepool /mnt/mirror/debian/pool --cleanup | tee ${LOG_FILE}
+  # cd /data/mirror/raspbian/
+  # python3 -u ~/raspbmirror.py --sourcepool /data/mirror/debian/pool --cleanup | tee ${LOG_FILE}
   # 官方脚本有bug，改用rsync
-  #rsync ${COMMON_OPTIONS} archive.raspbian.org::archive /mnt/mirror/raspbian | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} archive.raspbian.org::archive /data/mirror/raspbian | tee ${LOG_FILE}
   #;;
 #termux)
   # 上游：清华镜像
-  #rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::termux /mnt/mirror/termux | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::termux /data/mirror/termux | tee ${LOG_FILE}
   # termux默认是termux-packages-24
-  #ln -s /mnt/mirror/termux/termux-packages-24/dist /mnt/mirror/termux/dist
+  #ln -s /data/mirror/termux/termux-packages-24/dist /data/mirror/termux/dist
   #;;
 #ubuntu)
   # 上游：北京外国语镜像

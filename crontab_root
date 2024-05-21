@@ -10,4 +10,4 @@
 0 0 * * * /etc/logrotate
 
 # 每天9:30生成缓存统计数据(因nginx用户与mirror用户不一样，mirror无法读取缓存文件夹，故用root用户执行)
-30 9 * * * bash /home/mirror/mirror_cache_stat.sh >> /mnt/mirror/cache_stat.txt
+30 9 * * * bash /home/mirror/mirror_cache_stat.sh >> /data/mirror/cache_stat.txt

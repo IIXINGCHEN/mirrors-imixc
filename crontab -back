@@ -24,7 +24,7 @@
 20 5,11,17,23 * * *  /home/mirror/mirrors-gdut/mirror.sh archlinuxcn
 
 # 每天23:59发送当日统计
-59 23 * * * /bin/python3 /home/mirror/mirror_daily_summary.py > /mnt/mirror/daily_stat.txt
+59 23 * * * /bin/python3 /home/mirror/mirror_daily_summary.py > /data/mirror/daily_stat.txt
 # 每周日23:30发送磁盘数据
 30 23 * * 0  /bin/python3 /home/mirror/mirror_disk_summary.py
 # 缓存预热

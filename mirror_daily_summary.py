@@ -37,7 +37,7 @@ def check_ip_location(ip):
 
 
 summary = {}
-mirror_list = sorted(glob.glob('/mnt/mirror/*'))
+mirror_list = sorted(glob.glob('/data/mirror/*'))
 msg = "[每日统计]\n"
 
 # 计算发行版热度
@@ -111,7 +111,7 @@ for location in location_count:
     msg += '%s：%d人\n' % (location, location_count[location])
 
 # # 计算目录空间
-# space_used = os.popen('cd /mnt/mirror/ && du -BG -d 1 ./ | sort -k2').read()
+# space_used = os.popen('cd /data/mirror/ && du -BG -d 1 ./ | sort -k2').read()
 # msg += '===磁盘占用===\n'
 # msg += space_used
 #

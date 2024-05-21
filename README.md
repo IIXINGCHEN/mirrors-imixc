@@ -84,7 +84,7 @@ docker run --name nginx -p 80:80 --restart always \
   -v /home/mirror/mirrors-imixc/nginx_conf/proxy_pass_aliyun.conf:/etc/nginx/proxy_pass_aliyun.conf:ro \
   -v /home/mirror/mirrors-imixc/nginx_conf/proxy_pass_tsinghua.conf:/etc/nginx/proxy_pass_tsinghua.conf:ro \
   -v /home/mirror/mirrors-imixc/nginx_conf/proxy_pass_ustc.conf:/etc/nginx/proxy_pass_ustc.conf:ro \
-  -v /mnt/mirror:/mnt/mirror:ro -d nginx:latest
+  -v /data/mirror:/data/mirror:ro -d nginx:latest
 ```
 
 ## Nexus安装

@@ -81,7 +81,7 @@ http {
         listen       [::]:80 default_server;
         listen       [::]:443 default_server ssl;
         server_name  _; # 允许任何域名指向（不过https是*.gdut.edu.cn的证书）
-        root         /mnt/mirror;
+        root         /data/mirror;
 
         # HTTPS 配置
         ssl_certificate /usr/local/nginx/cert/-.gdut.edu.cn_chain.crt;
@@ -108,11 +108,11 @@ http {
         # 主页配置
         ##############################
 
-        # mirrors.gdut.edu.cn主页强制跳转https（使用ip或其它域名则不强制跳转）
+        # mirrors.imixc.top主页强制跳转https（使用ip或其它域名则不强制跳转）
         location = / {
             set $scheme_host "${scheme}://${host}";
-            if ( $scheme_host = "http://mirrors.gdut.edu.cn" ){
-                return 301 https://mirrors.gdut.edu.cn/;
+            if ( $scheme_host = "http://mirrors.imixc.top" ){
+                return 301 https://mirrors.imixc.top/;
             }
         }
 
