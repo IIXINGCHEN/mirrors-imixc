@@ -48,7 +48,7 @@ fi
 touch ${LOCK_FILE}
 
 # 更新主页同步状态
-python3 /home/mirror/mirrors-gdut/mirror_index.py
+python3 /home/mirror/mirrors-imixc/mirror_index.py
 
 # 判断log目录是否存在，不存在则创建
 if [[ ! -d ${LOG_DIR} ]]; then
@@ -141,11 +141,11 @@ epel)
   #;;
 #ubuntu)
   # 上游：北京外国语镜像
-  #~/mirrors-gdut/ubuntu/archive.sh | tee ${LOG_FILE}
+  #~/mirrors-imixc/ubuntu/archive.sh | tee ${LOG_FILE}
   #;;
 #buntu-releases)
   # 上游：北京外国语镜像
-  #~/mirrors-gdut/ubuntu/release.sh | tee ${LOG_FILE}
+  #~/mirrors-imixc/ubuntu/release.sh | tee ${LOG_FILE}
   #;;
 wlnmp)
   rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.wlnmp.com::wlnmp /data/mirror/wlnmp/ | tee ${LOG_FILE}
@@ -177,7 +177,7 @@ date "+%Y-%m-%d %T" >${SYNC_TIME_FILE}
 rm -f ${LOCK_FILE}
 
 # 更新主页同步状态
-python3 /home/mirror/mirrors-gdut/mirror_index.py
+python3 /home/mirror/mirrors-imixc/mirror_index.py
 
 # 清空LOG_TIME*24小时前的日志
 find ${LOG_DIR}/* -mtime +${LOG_TIME} -name '*log*' -delete
