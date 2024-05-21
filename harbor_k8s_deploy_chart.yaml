@@ -4,7 +4,7 @@ expose:
     enabled: true
     certSource: auto
     auto:
-      commonName: lihaolin13@outlook.com
+      commonName: ixingchen@outlook.com
     secret:
       secretName: ''
       notarySecretName: ''
@@ -54,7 +54,7 @@ expose:
       notaryPort: 4443
     annotations: {}
     sourceRanges: []
-externalURL: 'https://registry.gdut.edu.cn'
+externalURL: 'https://registry.imixc.top'
 internalTLS:
   enabled: false
   certSource: auto
