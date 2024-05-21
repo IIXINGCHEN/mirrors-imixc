@@ -48,7 +48,7 @@ fi
 touch ${LOCK_FILE}
 
 # 更新主页同步状态
-python3 /home/mirror/mirrors-gdut/mirror_index.py
+python3 /home/mirror/mirrors-imixc/mirror_index.py
 
 # 判断log目录是否存在，不存在则创建
 if [[ ! -d ${LOG_DIR} ]]; then
@@ -61,30 +61,30 @@ echo "日志文件："${LOG_FILE}
 
 # 执行同步命令
 case $1 in
-archlinux)
+#archlinux)
   # 上游：中科大镜像
-  rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinux /data/mirror/archlinux | tee ${LOG_FILE}
-  ;;
-archlinuxcn)
+  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinux /data/mirror/archlinux | tee ${LOG_FILE}
+  #;;
+#archlinuxcn)
   # 上游：中科大镜像
-  rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinuxcn /data/mirror/archlinuxcn | tee ${LOG_FILE}
-  ;;
-centos)
+  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::archlinuxcn /data/mirror/archlinuxcn | tee ${LOG_FILE}
+  #;;
+#centos)
   # 上游：北京外国语镜像
-  rsync ${COMMON_OPTIONS} --exclude='6.10/*' --exclude='aarch64/' --exclude='ppc64/' --exclude='ppc64le/' --exclude='s390x/' mirrors.bfsu.edu.cn::centos /data/mirror/centos | tee ${LOG_FILE}
-  ;;
-debian)
+  #rsync ${COMMON_OPTIONS} --exclude='6.10/*' --exclude='aarch64/' --exclude='ppc64/' --exclude='ppc64le/' --exclude='s390x/' mirrors.bfsu.edu.cn::centos /data/mirror/centos | tee ${LOG_FILE}
+  #;;
+#debian)
   # 上游：清华镜像
-  ftpsync # debian官网推荐的同步工具 /home/mirror/bin/ftpsync https://www.debian.org/mirror/ftpmirror
-  ;;
-debian-cd)
+  #ftpsync # debian官网推荐的同步工具 /home/mirror/bin/ftpsync https://www.debian.org/mirror/ftpmirror
+  #;;
+#debian-cd)
   # 上游：北京外国语镜像
-  rsync ${COMMON_OPTIONS} --include='amd64/**.iso' --exclude='*.iso' --exclude='source/tar/**' mirrors.bfsu.edu.cn::debian-cd /data/mirror/debian-cd | tee ${LOG_FILE}
-  ;;
-docker-ce)
+  #rsync ${COMMON_OPTIONS} --include='amd64/**.iso' --exclude='*.iso' --exclude='source/tar/**' mirrors.bfsu.edu.cn::debian-cd /data/mirror/debian-cd | tee ${LOG_FILE}
+  #;;
+#docker-ce)
   # 上游：清华镜像
-  rsync ${COMMON_OPTIONS} --exclude='linux/fedora/' --exclude='linux/raspbian/' --exclude='linux/rhel/' mirrors.tuna.tsinghua.edu.cn::docker-ce /data/mirror/docker-ce/ | tee ${LOG_FILE}
-  ;;
+  #rsync ${COMMON_OPTIONS} --exclude='linux/fedora/' --exclude='linux/raspbian/' --exclude='linux/rhel/' mirrors.tuna.tsinghua.edu.cn::docker-ce /data/mirror/docker-ce/ | tee ${LOG_FILE}
+  #;;
 elpa)
   # 上游：elpa.emacs-china.org
   rsync ${COMMON_OPTIONS} elpa.emacs-china.org::elpa /data/mirror/elpa/ | tee ${LOG_FILE}
@@ -93,59 +93,71 @@ epel)
   # 上游：清华镜像
   rsync ${COMMON_OPTIONS} --exclude='6/*' --exclude='SRPMS/' --exclude='aarch64/' --exclude='ppc64/' --exclude='ppc64le/' --exclude='s390x/' mirrors.tuna.tsinghua.edu.cn::epel /data/mirror/epel | tee ${LOG_FILE}
   ;;
-freebsd)
+#freebsd)
   # 上游：ftp2.jp.FreeBSD.org
   # 官方文档 https://www.freebsd.org/doc/en_US.ISO8859-1/articles/hubs/mirror-howto.html
   # 可选源：{ftp,ftp2,ftp6,ftp7}.jp.FreeBSD.org
-  rsync ${COMMON_OPTIONS} --exclude='/snapshots' --exclude='/development' --exclude='arm/' --exclude='arm64/' --exclude='aarch64/' --exclude='i386/' --exclude='powerpc/' --exclude='sparc64/' --exclude='**/11.2*/' --exclude='11.3*/' --exclude='11.4*/' --exclude='12.0*/' --exclude='12.1*/' --exclude='*BETA*/' --exclude='**/*arm*' --exclude='**/*i386*' --exclude='**/*powerpc*' --exclude='**/*sparc64*' ftp2.jp.FreeBSD.org::pub/FreeBSD/ /data/mirror/freebsd/ | tee ${LOG_FILE}
-  ;;
-gentoo)
+  #rsync ${COMMON_OPTIONS} --exclude='/snapshots' --exclude='/development' --exclude='arm/' --exclude='arm64/' --exclude='aarch64/' --exclude='i386/' --exclude='powerpc/' --exclude='sparc64/' --exclude='**/11.2*/' --exclude='11.3*/' --exclude='11.4*/' --exclude='12.0*/' --exclude='12.1*/' --exclude='*BETA*/' --exclude='**/*arm*' --exclude='**/*i386*' --exclude='**/*powerpc*' --exclude='**/*sparc64*' ftp2.jp.FreeBSD.org::pub/FreeBSD/ /data/mirror/freebsd/ | tee ${LOG_FILE}
+  #;;
+#gentoo)
   # 上游：masterdistfiles.gentoo.org
   # 官方文档 https://wiki.gentoo.org/wiki/Project:Infrastructure/Mirrors/Source
-  rsync ${COMMON_OPTIONS} --exclude='/releases/historical' --exclude='/distfiles/**' --exclude='**/alpha' --exclude='**/bsd' --exclude='**/hppa' --exclude='**/ia64' --exclude='**/m68k' --exclude='**/mips' --exclude='**/ppc' --exclude='**/prefix' --exclude='**/s390' --exclude='**/sh' --exclude='**/sparc' masterdistfiles.gentoo.org::gentoo /data/mirror/gentoo | tee ${LOG_FILE}
-  ;;
-kali-images)
+  #rsync ${COMMON_OPTIONS} --exclude='/releases/historical' --exclude='/distfiles/**' --exclude='**/alpha' --exclude='**/bsd' --exclude='**/hppa' --exclude='**/ia64' --exclude='**/m68k' --exclude='**/mips' --exclude='**/ppc' --exclude='**/prefix' --exclude='**/s390' --exclude='**/sh' --exclude='**/sparc' masterdistfiles.gentoo.org::gentoo /data/mirror/gentoo | tee ${LOG_FILE}
+  #;;
+#kali-images)
   # 上游：清华镜像
-  rsync ${COMMON_OPTIONS} --include='*amd64.iso' --exclude='*.iso' mirrors.tuna.tsinghua.edu.cn::kali-images /data/mirror/kali-images | tee ${LOG_FILE}
-  ;;
-kubernetes)
+  #rsync ${COMMON_OPTIONS} --include='*amd64.iso' --exclude='*.iso' mirrors.tuna.tsinghua.edu.cn::kali-images /data/mirror/kali-images | tee ${LOG_FILE}
+  #;;
+#kubernetes)
   # 上游：清华镜像
-  rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::kubernetes /data/mirror/kubernetes/ | tee ${LOG_FILE}
-  ;;
-manjaro)
+  #rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::kubernetes /data/mirror/kubernetes/ | tee ${LOG_FILE}
+  #;;
+#manjaro)
   # 上游：中科大镜像
-  rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::repo/manjaro/ /data/mirror/manjaro/ | tee ${LOG_FILE}
-  ;;
-manjaro-cd)
+  #rsync ${COMMON_OPTIONS} rsync.mirrors.ustc.edu.cn::repo/manjaro/ /data/mirror/manjaro/ | tee ${LOG_FILE}
+  #;;
+#manjaro-cd)
   # 上游：中科大镜像
-  rsync ${COMMON_OPTIONS} --exclude='z_release_archive/' rsync.mirrors.ustc.edu.cn::repo/manjaro-cd/ /data/mirror/manjaro-cd/ | tee ${LOG_FILE}
-  ;;
-raspberrypi)
+  #rsync ${COMMON_OPTIONS} --exclude='z_release_archive/' rsync.mirrors.ustc.edu.cn::repo/manjaro-cd/ /data/mirror/manjaro-cd/ | tee ${LOG_FILE}
+  #;;
+#raspberrypi)
   # 上游：apt-repo.raspberrypi.org
   # 仅支持ipv6，详见 http://archive.raspberrypi.org/README.txt
   rsync ${COMMON_OPTIONS} --exclude='/html' apt-repo.raspberrypi.org::archive /data/mirror/raspberrypi | tee ${LOG_FILE}
   ;;
-raspbian)
+#raspbian)
   # 上游：archive.raspbian.org
   # 采用官方脚本，文档见 http://www.raspbian.org/RaspbianMirrors
   # cd /data/mirror/raspbian/
   # python3 -u ~/raspbmirror.py --sourcepool /data/mirror/debian/pool --cleanup | tee ${LOG_FILE}
   # 官方脚本有bug，改用rsync
-  rsync ${COMMON_OPTIONS} archive.raspbian.org::archive /data/mirror/raspbian | tee ${LOG_FILE}
-  ;;
-termux)
+  #rsync ${COMMON_OPTIONS} archive.raspbian.org::archive /data/mirror/raspbian | tee ${LOG_FILE}
+  #;;
+#termux)
   # 上游：清华镜像
-  rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::termux /data/mirror/termux | tee ${LOG_FILE}
+  #rsync ${COMMON_OPTIONS} mirrors.tuna.tsinghua.edu.cn::termux /data/mirror/termux | tee ${LOG_FILE}
   # termux默认是termux-packages-24
-  ln -s /data/mirror/termux/termux-packages-24/dist /data/mirror/termux/dist
-  ;;
-ubuntu)
+  #ln -s /data/mirror/termux/termux-packages-24/dist /data/mirror/termux/dist
+  #;;
+#ubuntu)
   # 上游：北京外国语镜像
-  ~/mirrors-gdut/ubuntu/archive.sh | tee ${LOG_FILE}
-  ;;
-ubuntu-releases)
+ # ~/mirrors-imixc/ubuntu/archive.sh | tee ${LOG_FILE}
+  #;;
+#ubuntu-releases)
   # 上游：北京外国语镜像
-  ~/mirrors-gdut/ubuntu/release.sh | tee ${LOG_FILE}
+  #~/mirrors-imixc/ubuntu/release.sh | tee ${LOG_FILE}
+  #;;
+wlnmp)
+  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.wlnmp.com::wlnmp /data/mirror/wlnmp/ | tee ${LOG_FILE}
+  ;;
+static-repo)
+  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* rsync://s.xinac.com/static /data/mirror/static/ | tee ${LOG_FILE}
+  ;;
+lemp)
+  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.oneinstack.com::lemp /data/mirror/oneinstack/ | tee ${LOG_FILE}
+  ;;
+usb)
+  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* rsync://mirrors.tuna.tsinghua.edu.cn/u.sb /data/mirror/usb/ | tee ${LOG_FILE}
   ;;
 *)
   usage
@@ -165,7 +177,7 @@ date "+%Y-%m-%d %T" >${SYNC_TIME_FILE}
 rm -f ${LOCK_FILE}
 
 # 更新主页同步状态
-python3 /home/mirror/mirrors-gdut/mirror_index.py
+python3 /home/mirror/mirrors-imixc/mirror_index.py
 
 # 清空LOG_TIME*24小时前的日志
 find ${LOG_DIR}/* -mtime +${LOG_TIME} -name '*log*' -delete
