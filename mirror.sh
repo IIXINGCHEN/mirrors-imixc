@@ -150,9 +150,9 @@ epel)
 wlnmp)
   rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.wlnmp.com::wlnmp /data/mirror/wlnmp/ | tee ${LOG_FILE}
   ;;
-static-repo)
-  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* rsync://s.xinac.com/static /data/mirror/static/ | tee ${LOG_FILE}
-  ;;
+#static-repo)
+  #rsync ${COMMON_OPTIONS} --include=/ --exclude=/* rsync://s.xinac.com/static /data/mirror/static/ | tee ${LOG_FILE}
+  #;;
 lemp)
   rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.oneinstack.com::lemp /data/mirror/oneinstack/ | tee ${LOG_FILE}
   ;;
