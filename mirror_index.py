@@ -74,7 +74,7 @@ html = HEADER
 odd_or_even = 'odd'
 odd_or_even_syncing = 'odd'
 
-mirror_list = sorted(glob.glob('/data/mirror/*'))
+mirror_list = sorted(glob.glob('/data/wwwroot/mirror/*'))
 cdn_mirror_list = ['pypi', 'centos-vault', 'anaconda', 'maven', 'npm', 'kali', 'ubuntu-ports', 'freebsd-pkg', 'docker', 'go']
 ignore_dir = ['static', 'font']
 
@@ -118,5 +118,5 @@ for mirror in mirror_list:
 
 html += FOOTER
 
-with open('/data/mirror/index.html', 'w') as f:
+with open('/data/wwwroot/mirror/index.html', 'w') as f:
     f.write(html)

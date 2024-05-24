@@ -83,8 +83,8 @@ case $1 in
   #;;
 #docker-ce)
   # 上游：清华镜像
-  rsync ${COMMON_OPTIONS} --exclude='linux/fedora/' --exclude='linux/raspbian/' --exclude='linux/rhel/' mirrors.tuna.tsinghua.edu.cn::docker-ce /data/mirror/docker-ce/ | tee ${LOG_FILE}
-  ;;
+  #rsync ${COMMON_OPTIONS} --exclude='linux/fedora/' --exclude='linux/raspbian/' --exclude='linux/rhel/' mirrors.tuna.tsinghua.edu.cn::docker-ce /data/mirror/docker-ce/ | tee ${LOG_FILE}
+  #;;
 #elpa)
   # 上游：elpa.emacs-china.org
   #rsync ${COMMON_OPTIONS} elpa.emacs-china.org::elpa /data/mirror/elpa/ | tee ${LOG_FILE}
@@ -148,16 +148,16 @@ epel)
   #~/mirrors-imixc/ubuntu/release.sh | tee ${LOG_FILE}
   #;;
 wlnmp)
-  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.wlnmp.com::wlnmp /data/mirror/wlnmp/ | tee ${LOG_FILE}
+  rsync ${COMMON_OPTIONS} --include=anolisos/ --exclude=/* us.wlnmp.com::wlnmp /data/wwwroot/mirror/wlnmp/ | tee ${LOG_FILE}
   ;;
 #static-repo)
   #rsync ${COMMON_OPTIONS} --include=/ --exclude=/* rsync://s.xinac.com/static /data/mirror/static/ | tee ${LOG_FILE}
   #;;
 lemp)
-  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.oneinstack.com::lemp /data/mirror/oneinstack/ | tee ${LOG_FILE}
+  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* mirrors.oneinstack.com::lemp /data/wwwroot/mirror/oneinstack/ | tee ${LOG_FILE}
   ;;
 usb)
-  rsync ${COMMON_OPTIONS} --include=/ --exclude=/* rsync://mirrors.tuna.tsinghua.edu.cn/u.sb /data/mirror/usb/ | tee ${LOG_FILE}
+  rsync ${COMMON_OPTIONS}  rsync://mirrors.tuna.tsinghua.edu.cn/u.sb /data/wwwroot/mirror/u.sb/ | tee ${LOG_FILE}
   ;;
 *)
 usage
